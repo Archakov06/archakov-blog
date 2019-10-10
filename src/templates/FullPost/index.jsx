@@ -4,12 +4,21 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import Layout from "../../components/Layout";
 import SEO from "../../components/Seo";
+import CategoryName from "../../components/CategoryName";
 
 import ArrowBackSvg from "../../../static/arrow.svg";
 
 import "./FullPost.scss";
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://archakov.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    d.head.appendChild(s);
+  }
+
   render() {
     const post = this.props.data.mdx;
     const siteTitle = this.props.data.site.siteMetadata.title;
@@ -37,8 +46,8 @@ class BlogPostTemplate extends React.Component {
                   {post.frontmatter.title}
                 </div>
                 <div className="full-post__header-details-info">
-                  <Link to="/">
-                    <span className="full-post__category-name">Событие</span>
+                  <Link to={`/category/${post.frontmatter.category}`}>
+                    <CategoryName>{post.frontmatter.category}</CategoryName>
                   </Link>
                   <span className="full-post__date">
                     {post.frontmatter.date}
@@ -56,6 +65,13 @@ class BlogPostTemplate extends React.Component {
           <div className="full-post__text">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
+          <noscript>
+            Please enable JavaScript to view the{" "}
+            <a href="https://disqus.com/?ref_noscript">
+              comments powered by Disqus.
+            </a>
+          </noscript>
+          <div id="disqus_thread" />
           <ul>
             <li>
               {next && (
@@ -99,6 +115,7 @@ export const pageQuery = graphql`
         slug
         description
         title
+        category
       }
     }
   }
