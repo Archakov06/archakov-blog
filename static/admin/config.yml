@@ -6,13 +6,21 @@ media_folder: static/assets
 public_folder: assets
 
 collections:
-  - name: blog
+  - name: posts
     label: Post
     folder: content/blog
     create: true
     fields:
       - { name: title, label: Title }
       - { name: image, label: Image, widget: image, required: false }
+      - {
+          name: category,
+          label: Category,
+          widget: relation,
+          collection: categories,
+          searchFields: ["name", "slug"],
+          valueField: "name",
+        }
       - { name: tags, label: Tags, widget: list, required: false }
       - { name: slug, label: Slug }
       - { name: date, label: Date, widget: datetime }
@@ -25,3 +33,11 @@ collections:
           default: false,
           required: false,
         }
+  - name: categories
+    label: Category
+    folder: content/category
+    create: true
+    identifier_field: name
+    fields:
+      - { name: "name", label: Name }
+      - { name: "slug", label: Slug }

@@ -19,8 +19,7 @@ class BlogPostTemplate extends React.Component {
       <div className="full-post">
         <div
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1570654230464-9cf6d6f0660f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')",
+            backgroundImage: `url("${post.frontmatter.image}")`,
           }}
           className="full-post__header"
         >
@@ -60,14 +59,14 @@ class BlogPostTemplate extends React.Component {
           <ul>
             <li>
               {next && (
-                <Link to={`post${next.fields.slug}`} rel="next">
+                <Link to={`post/${next.frontmatter.slug}`} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}
             </li>
             <li>
               {previous && (
-                <Link to={`post${previous.fields.slug}`} rel="prev">
+                <Link to={`post/${previous.frontmatter.slug}`} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
@@ -89,13 +88,17 @@ export const pageQuery = graphql`
         author
       }
     }
-    mdx(fields: { slug: { eq: $slug } }) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       body
       frontmatter {
-        title
         date(formatString: "DD MMMM YYYY, В HH:MM")
+        image
+        tags
+        slug
+        description
+        title
       }
     }
   }
