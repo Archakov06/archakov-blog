@@ -1,0 +1,53 @@
+.post-item {
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 60px;
+
+  &__image {
+    overflow: hidden;
+    height: 350px;
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+    }
+  }
+
+  &__content {
+    padding: 0 25px;
+
+    h2 {
+      font-family: Montserrat !important;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 44px;
+      letter-spacing: -0.01em;
+      margin-top: 8px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    font-family: IBM Plex Sans;
+    font-size: 22px;
+    line-height: 34px;
+    letter-spacing: 0.01em;
+    opacity: 0.6;
+    margin-bottom: 40px;
+  }
+
+  &__date {
+    font-family: IBM Plex Sans;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #b0b0b0;
+  }
+}

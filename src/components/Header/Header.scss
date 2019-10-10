@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Montserrat !important;
+  margin: 60px 0;
+
+  &__logo {
+    font-weight: 800;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+  }
+
+  a {
+    color: #00182a;
+    font-family: Montserrat !important;
+  }
+
+  &__menu {
+    display: flex;
+
+    li {
+      margin-left: 32px;
+      border-bottom: 2px solid transparent;
+
+      &:hover {
+        border-bottom: 2px solid #000;
+      }
+    }
+  }
+}
