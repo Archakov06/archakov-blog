@@ -1,6 +1,7 @@
 ---
 title: Test
 image: /assets/5d94422a591f2.jpg
+category: JavaScript
 tags:
   - a
   - b
