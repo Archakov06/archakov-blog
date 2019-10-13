@@ -1,6 +1,6 @@
 ---
 title: Test
-image: /assets/5d94422a591f2.jpg
+image: /assets/photo-1564566698730-9903b9e4a08c.jpg
 category: JavaScript
 tags:
   - a
