@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 import "./Header.scss";
 
 const Header = ({ pathname, title }) => {
-  const rootPath = `${__PATH_PREFIX__}/`;
   const blogPath = `${__PATH_PREFIX__}/blog/`;
 
   return (

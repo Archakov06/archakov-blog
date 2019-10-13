@@ -8,6 +8,8 @@ import Header from "../components/Header";
 
 import "../styles/app.scss";
 
+console.log(globalThis);
+
 class Blog extends React.Component {
   render() {
     const { data } = this.props;
@@ -15,13 +17,13 @@ class Blog extends React.Component {
     const posts = data.allMdx.edges;
 
     return (
-      <div class="wrapper">
+      <div className="wrapper">
         <Header pathname={this.props.location.pathname} title={siteTitle} />
         <Layout location={this.props.location} title={siteTitle}>
           <SEO title="Главная" />
           <div className="posts">
-            {posts.map(({ node }) => (
-              <PostItem {...node} />
+            {posts.map(({ node }, index) => (
+              <PostItem key={index} {...node} />
             ))}
           </div>
         </Layout>
