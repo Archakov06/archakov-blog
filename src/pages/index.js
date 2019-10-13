@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import PostItem from "../components/PostItem";
 import SEO from "../components/Seo";
+import Header from "../components/Header";
 
 import "../styles/app.scss";
 
@@ -14,14 +15,17 @@ class Blog extends React.Component {
     const posts = data.allMdx.edges;
 
     return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="Главная" />
-        <div>
-          {posts.map(({ node }) => (
-            <PostItem {...node} />
-          ))}
-        </div>
-      </Layout>
+      <div class="wrapper">
+        <Header pathname={this.props.location.pathname} title={siteTitle} />
+        <Layout location={this.props.location} title={siteTitle}>
+          <SEO title="Главная" />
+          <div className="posts">
+            {posts.map(({ node }) => (
+              <PostItem {...node} />
+            ))}
+          </div>
+        </Layout>
+      </div>
     );
   }
 }

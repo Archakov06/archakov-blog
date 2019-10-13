@@ -2,8 +2,6 @@
   $full-post: &;
 
   &--no-image {
-    height: 280px;
-
     #{$full-post}__header-overlay {
       background-color: transparent;
       padding-bottom: 0;
@@ -12,6 +10,7 @@
     #{$full-post}__header {
       height: auto;
       text-shadow: none;
+      height: 280px;
 
       &-overlay {
         position: static;

@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./Header";
 
 class Layout extends React.Component {
   render() {
@@ -7,7 +6,6 @@ class Layout extends React.Component {
 
     return (
       <div className="container">
-        <Header pathname={location.pathname} title={title} />
         <main>{children}</main>
       </div>
     );
