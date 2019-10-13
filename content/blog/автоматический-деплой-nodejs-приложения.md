@@ -1,6 +1,6 @@
 ---
 title: Автоматический деплой NodeJS приложения
-image: /assets/avtomaticheskij-deploj-nodejs-prilozheniya.png
+image: /assets/photo-1518770660439-4636190af475.jpg
 category: Другое
 tags:
   - nodejs
