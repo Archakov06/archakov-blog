@@ -77,16 +77,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    >
-      <link
-        href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap&subset=cyrillic"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap&subset=cyrillic"
-        rel="stylesheet"
-      />
-    </Helmet>
+    />
   );
 }
 

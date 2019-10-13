@@ -1,6 +1,9 @@
 @import "reset-css";
 @import "./base.scss";
 
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600,700&display=swap&subset=cyrillic");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:700,800&display=swap&subset=cyrillic");
+
 .container {
   width: 100%;
   max-width: 770px;

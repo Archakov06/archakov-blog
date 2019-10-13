@@ -1,12 +1,11 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import classNames from "classnames";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import Layout from "../../components/Layout";
 import SEO from "../../components/Seo";
 import CategoryName from "../../components/CategoryName";
-
-import ArrowBackSvg from "../../../static/arrow.svg";
 
 import "./FullPost.scss";
 
@@ -25,7 +24,11 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext;
 
     return (
-      <div className="full-post">
+      <div
+        className={classNames("full-post", {
+          "full-post--no-image": !post.frontmatter.image,
+        })}
+      >
         <div
           style={{
             backgroundImage: `url("${post.frontmatter.image}")`,
@@ -36,7 +39,18 @@ class BlogPostTemplate extends React.Component {
             <div className="container">
               <Link to="/">
                 <div className="full-post__header-back">
-                  <img src={ArrowBackSvg} alt="Arrow back" />
+                  <svg
+                    width="20"
+                    height="21"
+                    viewBox="0 0 20 21"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.3032 17.0647L10.4151 17.9528C10.039 18.3288 9.43097 18.3288 9.05892 17.9528L1.28203 10.1799C0.905989 9.80387 0.905989 9.1958 1.28203 8.82376L9.05892 1.04686C9.43497 0.670821 10.043 0.670821 10.4151 1.04686L11.3032 1.93497C11.6832 2.31501 11.6752 2.93508 11.2872 3.30712L6.46663 7.89965H17.9639C18.496 7.89965 18.9241 8.3277 18.9241 8.85976V10.1399C18.9241 10.672 18.496 11.1 17.9639 11.1H6.46663L11.2872 15.6925C11.6792 16.0646 11.6872 16.6847 11.3032 17.0647Z"
+                      fill="white"
+                    />
+                  </svg>
                   <span>Назад</span>
                 </div>
               </Link>
