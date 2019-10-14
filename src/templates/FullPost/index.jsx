@@ -27,9 +27,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div class="wrapper">
-        {!post.frontmatter.image && (
-          <Header pathname={location.pathname} title={siteTitle} />
-        )}
+        <Header pathname={location.pathname} title={siteTitle} />
         <div
           className={classNames("full-post", {
             "full-post--no-image": !post.frontmatter.image,
@@ -82,8 +80,16 @@ class BlogPostTemplate extends React.Component {
               title={post.frontmatter.title}
               description={post.frontmatter.description || post.excerpt}
             />
-            <div className="full-post__text">
+            <div className="full-post__text markdown">
               <MDXRenderer>{post.body}</MDXRenderer>
+            </div>
+            <div className="full-post__tags">
+              {post.frontmatter.tags &&
+                post.frontmatter.tags.map(tag => (
+                  <Link to={`/tags/${tag}`} className="full-post__tags-item">
+                    {tag}
+                  </Link>
+                ))}
             </div>
             <noscript>
               Please enable JavaScript to view the{" "}

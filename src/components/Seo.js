@@ -77,7 +77,9 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
-    />
+    >
+      <script src="http://archakov.im/js/libs/prism.js" />
+    </Helmet>
   );
 }
 

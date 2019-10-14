@@ -1,8 +1,6 @@
 backend:
   name: github
   repo: Archakov06/archakov-blog
-  app_id: 3017315ea1f9a3450587
-  auth_type: implicit
 
 media_folder: static/assets
 public_folder: assets

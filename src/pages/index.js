@@ -8,8 +8,6 @@ import Header from "../components/Header";
 
 import "../styles/app.scss";
 
-console.log(globalThis);
-
 class Blog extends React.Component {
   render() {
     const { data } = this.props;
